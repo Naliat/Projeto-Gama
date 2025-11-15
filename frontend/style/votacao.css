@@ -1,10 +1,9 @@
 /* ======================================================= */
-/* --- Estilos da Página de Votação (votacao.css) --- */
-/* Aplica-se a: votacao.html */
-/* NOTE: Este arquivo repete as cores e body. Por isso, no HTML, você só vai referenciar este arquivo. */
+/* --- Estilos COMPLETOS da Página de Votação --- */
+/* (Este arquivo NÃO precisa do style-global.css) */
 /* ======================================================= */
 
-/* Definições e Estilos Básicos (Repetição para Isolamento) */
+/* Definições e Estilos Básicos (Global) */
 :root {
     --color-primary: #FF6B6B; 
     --color-primary-dark: #FF4757;
@@ -16,18 +15,64 @@
     --color-border: #E2E8F0;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
     background-color: var(--color-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
     color: var(--color-secondary);
     line-height: 1.6;
 }
+
+/* ======================================================= */
+/* --- 2. Estilos do Header (Navbar) --- */
+/* ======================================================= */
+
+.header-container h1 a {
+    color: inherit; 
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: var(--color-card-background);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; 
+}
+
+.header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    color: var(--color-primary);
+    font-size: 1.5em;
+    font-weight: 800;
+    margin: 0;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+/* ======================================================= */
+/* --- 3. Estilos Específicos (Votação) --- */
+/* ======================================================= */
 
 .container {
     background: var(--color-card-background);
@@ -37,13 +82,15 @@ body {
     width: 100%;
     max-width: 700px; /* Mais largo para votação */
     text-align: center;
-    box-sizing: border-box;
+    
+    /* Centralização do container */
+    margin: 40px auto;
 }
 
-/* Repetição de H1, H2, P, Botões e Inputs para garantir que funcione */
-h1 { color: var(--color-primary); margin-bottom: 5px; font-size: 2em; font-weight: 800; }
-p { color: var(--color-text-light); margin-bottom: 30px; font-size: 0.95em; }
-h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px; font-size: 1.5em; font-weight: 600; }
+/* Títulos e botões escopados */
+.container h1 { color: var(--color-primary); margin-bottom: 5px; font-size: 2em; font-weight: 800; }
+.container p { color: var(--color-text-light); margin-bottom: 30px; font-size: 0.95em; }
+.container h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px; font-size: 1.5em; font-weight: 600; }
 
 .btn { width: 100%; padding: 14px; border: none; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: 700; transition: background-color 0.3s, transform 0.1s; margin-top: 15px; }
 .btn.primary { background-color: var(--color-primary); color: white; }
@@ -67,6 +114,7 @@ h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px soli
     margin-bottom: 15px;
 }
 .vote-header h2 {
+    /* Escopo Específico */
     margin: 0;
     padding: 0;
     border-bottom: none;
@@ -79,6 +127,7 @@ h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px soli
     text-align: right;
 }
 .vote-body p {
+    /* Escopo Específico */
     color: var(--color-secondary);
     margin: 0;
     margin-bottom: 20px;
@@ -146,7 +195,7 @@ h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px soli
     padding: 12px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
     transition: border-color 0.3s, box-shadow 0.3s;
     margin-bottom: 10px;
 }
@@ -155,13 +204,26 @@ h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px soli
     min-height: 80px;
 }
 
-/* Responsividade (Votação) */
+/* ======================================================= */
+/* --- 4. Responsividade (Global e Específica) --- */
+/* ======================================================= */
+@media (max-width: 650px) {
+    /* Regra do Header */
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
 @media (max-width: 600px) {
+    /* Regras da Votação */
     .container {
         max-width: 100%;
         padding: 15px;
         border-radius: 0;
         box-shadow: none;
+        margin: 0;
     }
     .vote-buttons {
         grid-template-columns: 1fr;

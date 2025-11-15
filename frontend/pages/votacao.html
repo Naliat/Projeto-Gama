@@ -4,121 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Briga de casal - Discussão e Votação</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <style>
-        .vote-card {
-            margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 8px;
-            background: var(--color-card-background);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--color-primary); /* Destaque */
-        }
-        .vote-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px dashed var(--color-border);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        .vote-header h2 {
-            margin: 0;
-            padding: 0;
-            border-bottom: none;
-            font-size: 1.6em;
-            color: var(--color-primary);
-        }
-        .vote-details {
-            font-size: 0.9em;
-            color: var(--color-text-light);
-            text-align: right;
-        }
-        .vote-body p {
-            color: var(--color-secondary);
-            margin: 0;
-            margin-bottom: 20px;
-            text-align: left;
-            white-space: pre-wrap; /* Preserva quebras de linha no texto */
-        }
-        .vote-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .vote-buttons button {
-            padding: 12px;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            background: #F8F9FA;
-            color: var(--color-secondary);
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-        }
-        .vote-buttons button:hover:not(.voted) {
-            background: #EAECEF;
-        }
-        .vote-buttons .btn-babaca {
-            background-color: #FF6B6B30; /* Fundo mais suave para as opções negativas */
-        }
-        .vote-buttons .btn-ninguem {
-            background-color: #6BFF6B30; /* Fundo verde para a opção positiva */
-        }
-        /* Comentários */
-        .comments-section h3 {
-            color: var(--color-secondary);
-            font-size: 1.2em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: 5px;
-            font-weight: 700;
-        }
-        .comment-item {
-            padding: 15px;
-            border-radius: 8px;
-            background: #FAFAFA;
-            margin-bottom: 10px;
-            border: 1px solid var(--color-border);
-        }
-        .comment-item strong {
-            display: block;
-            color: var(--color-primary);
-            margin-bottom: 5px;
-        }
-        .comment-item p {
-            color: var(--color-secondary);
-            margin: 0;
-            font-size: 0.9em;
-        }
-
-        /* Área de Novo Comentário */
-        #new-comment-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            box-sizing: border-box;
-            resize: vertical;
-            min-height: 80px;
-            margin-bottom: 10px;
-        }
-
-        /* Responsividade para Votação */
-        @media (max-width: 600px) {
-            .container {
-                max-width: 100%;
-                padding: 15px;
-            }
-            .vote-buttons {
-                grid-template-columns: 1fr; /* 1 coluna em celular */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../style/votacao.css">
 </head>
 <body>
+
+
+
+    <header class="navbar">
+        <div class="header-container">
+
+            <h1>
+                <a href="listaDiscussao.html">AnonVote Feed</a>
+            </h1>
+            
+            <nav>
+                <a href="./novaDiscussao.html" class="btn primary small-btn">➕ Nova Discussão</a>
+                <a href="../index.html" class="btn secondary small-btn">Sair</a>
+            </nav>
+        </div>
+    </header>
 
     <div class="container" style="max-width: 700px;"> <div class="vote-card">
             <div class="vote-header">

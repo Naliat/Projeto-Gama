@@ -14,17 +14,72 @@
     --color-border: #E2E8F0;
 }
 
+/* --- AJUSTE 1: Melhor prática de box-sizing --- */
+/* Define o box-sizing para todos os elementos */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
     background-color: var(--color-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
+    /* --- AJUSTE 2: Remoção do layout flex de centralização --- */
+    /* Estas propriedades estavam em conflito com o header sticky */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    
+    /* Padding removido daqui para permitir o header full-width */
+    /* padding: 20px; */ 
+    
     color: var(--color-secondary);
     line-height: 1.6;
+}
+
+.header-container h1 a {
+    color: inherit; 
+    text-decoration: none;
+}
+
+/* 1. Navegação (Header) */
+.navbar {
+    background-color: var(--color-card-background);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* --- AJUSTE 3: Garantir que o header ocupe a largura total --- */
+    /* (Necessário após remover o padding do body) */
+    width: 100%; 
+}
+
+.header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    color: var(--color-primary);
+    font-size: 1.5em;
+    font-weight: 800;
+    margin: 0;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 600;
 }
 
 .container {
@@ -33,14 +88,23 @@ body {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     width: 100%;
-    max-width: 600px; /* Container mais largo para o formulário de texto */
+    max-width: 600px; 
     text-align: center;
-    box-sizing: border-box;
+    
+    /* --- AJUSTE 4: Centralização do container --- */
+    /* Agora que o body não é flex, usamos margin: auto */
+    /* 40px de espaço do topo (header) e auto nas laterais */
+    margin: 40px auto;
+
+    /* box-sizing: border-box;  <-- Removido, pois agora é global */
 }
 
-h1 { color: var(--color-primary); margin-bottom: 5px; font-size: 2em; font-weight: 800; }
-p { color: var(--color-text-light); margin-bottom: 30px; font-size: 0.95em; }
-h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px; font-size: 1.5em; font-weight: 600; }
+/* --- AJUSTE 5: Escopo dos Títulos --- */
+/* É uma boa prática escopar H1, p, h2 para dentro do .container */
+/* para não afetar outros elementos (como o H1 do navbar) */
+.container h1 { color: var(--color-primary); margin-bottom: 5px; font-size: 2em; font-weight: 800; }
+.container p { color: var(--color-text-light); margin-bottom: 30px; font-size: 0.95em; }
+.container h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px; font-size: 1.5em; font-weight: 600; }
 
 /* Formulário e Inputs */
 .form-box.active { display: block; }
@@ -64,13 +128,13 @@ h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px soli
     padding: 12px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; <-- Removido, pois agora é global */
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input-group textarea {
     resize: vertical;
-    min-height: 150px; /* Mais altura para o texto da discussão */
+    min-height: 150px; 
 }
 
 .input-group input:focus,
@@ -129,7 +193,16 @@ h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px soli
 
 /* Responsividade */
 @media (max-width: 650px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
     .container {
+        /* --- AJUSTE 6: Margem para mobile --- */
+        /* Remove a margem 'auto' para que o container possa */
+        /* ter 100% da largura, como definido abaixo. */
+        margin: 0;
         max-width: 100%;
         padding: 20px;
         border-radius: 0;

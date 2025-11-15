@@ -23,6 +23,11 @@ body {
     line-height: 1.6;
 }
 
+.header-container h1 a {
+    color: inherit; /* Faz o link herdar a cor do elemento pai (o h1) */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
 /* 1. Navegação (Header) */
 .navbar {
     background-color: var(--color-card-background);
