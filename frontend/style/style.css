@@ -1,0 +1,186 @@
+/* Definição de Cores Melhoradas (Tema: Conflito Suave/Moderno) */
+:root {
+    --color-primary: #FF6B6B; /* Vermelho/Rosa suave e moderno (Conflito) */
+    --color-primary-dark: #FF4757; /* Versão mais escura ao hover */
+    --color-secondary: #47535E; /* Azul escuro/Chumbo (Texto principal) */
+    --color-background: #F8F9FA; /* Branco acinzentado muito suave */
+    --color-card-background: #FFFFFF; /* Fundo do container branco puro */
+    --color-text-light: #A0AEC0; /* Cinza suave (para parágrafos/links discretos) */
+    --color-link: #3498db; /* Azul padrão para links */
+    --color-border: #E2E8F0; /* Borda cinza clara */
+}
+
+/* 1. Reset Básico e Fontes */
+body {
+    /* Troca para uma fonte mais moderna e limpa */
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+/* 2. Container e Estilização de Cartão */
+.container {
+    background: var(--color-card-background);
+    padding: 30px; /* Redução sutil do padding */
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais suave e elevada */
+    width: 100%;
+    max-width: 380px; /* Ajuste sutil para o foco */
+    text-align: center;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+}
+
+/* Título Principal (H1) */
+h1 {
+    color: var(--color-primary);
+    margin-bottom: 5px;
+    font-size: 2em;
+    font-weight: 800; /* Mais impacto */
+}
+
+/* Parágrafos de descrição */
+p {
+    color: var(--color-text-light);
+    margin-bottom: 30px; /* Mais espaço abaixo da descrição */
+    font-size: 0.95em;
+}
+
+/* Títulos Secundários (H2) */
+h2 {
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-border); /* Borda mais discreta */
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* 3. Formulário */
+.form-box {
+    display: none;
+}
+
+.form-box.active {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Mais peso */
+    color: var(--color-secondary);
+    font-size: 0.9em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px; /* Um pouco mais de padding */
+    border: 1px solid var(--color-border);
+    border-radius: 8px; /* Cantos mais arredondados nos inputs */
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--color-primary); /* Foco na cor principal */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2); /* Efeito suave de foco */
+}
+
+/* 4. Botões */
+.btn {
+    width: 100%;
+    padding: 14px; /* Mais altura para o botão */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 15px;
+}
+
+.btn.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px); /* Efeito sutil ao passar o mouse */
+}
+
+/* 5. Links e Textos Auxiliares */
+
+/* Link Esqueci Senha */
+.forgot-password-link {
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 10px; /* Ajuste para melhor fluxo */
+}
+
+.forgot-password-link a {
+    color: var(--color-text-light); /* Cor discreta */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password-link a:hover {
+    color: var(--color-link); 
+    text-decoration: underline;
+}
+
+
+/* Texto e Link de Alternância (Login/Cadastro) */
+.switch-text {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: var(--color-text-light);
+}
+
+.switch-text a {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}
+
+/* Container de Senha (trocarSenha.html) */
+.container.small-container {
+    max-width: 350px;
+}
+
+/* 6. Responsividade (Otimização para Celular) */
+
+/* Em telas muito pequenas, garante que não haja padding excessivo no body */
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 25px;
+        margin: 0 10px; /* Margem lateral mínima para respiro */
+        border-radius: 0; /* Opção: Remover borda em telas muito pequenas para usar toda a largura */
+        box-shadow: none; /* Opção: Remover sombra em telas muito pequenas */
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
