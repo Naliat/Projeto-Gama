@@ -1,0 +1,196 @@
+/* ======================================================= */
+/* --- Estilos da Página de Lista de Discussões (listaDiscussao.css) --- */
+/* ======================================================= */
+
+/* Definições e Estilos Básicos (Global Repetido) */
+:root {
+    --color-primary: #FF6B6B; 
+    --color-primary-dark: #FF4757;
+    --color-secondary: #47535E;
+    --color-background: #F8F9FA;
+    --color-card-background: #FFFFFF;
+    --color-text-light: #A0AEC0;
+    --color-link: #3498db;
+    --color-border: #E2E8F0;
+}
+
+body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+/* 1. Navegação (Header) */
+.navbar {
+    background-color: var(--color-card-background);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    color: var(--color-primary);
+    font-size: 1.5em;
+    font-weight: 800;
+    margin: 0;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.btn.primary.small-btn {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.btn.secondary.small-btn {
+    background-color: #eee;
+    color: var(--color-secondary);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+
+/* 2. Container Principal (Feed) */
+.main-feed-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.feed-info {
+    font-size: 1em;
+    color: var(--color-secondary);
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 15px;
+}
+
+/* 3. Cartões de Discussão */
+.discussion-card {
+    display: block; /* Faz o cartão ser clicável por inteiro */
+    background: var(--color-card-background);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s, transform 0.2s;
+    text-align: left;
+    text-decoration: none; /* Remove sublinhado do <a> */
+    border: 1px solid transparent;
+}
+
+.discussion-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
+}
+
+.card-header-feed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header-feed h2 {
+    font-size: 1.3em;
+    color: var(--color-secondary);
+    margin: 0;
+    padding: 0;
+    border: none;
+    flex-grow: 1;
+}
+
+.anon-tag, .user-tag {
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.anon-tag {
+    background-color: #FF6B6B30;
+    color: var(--color-primary);
+}
+
+.user-tag {
+    background-color: #3498db30;
+    color: var(--color-link);
+}
+
+.card-summary {
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    max-height: 40px; /* Limita para duas linhas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-footer-feed {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: var(--color-text-light);
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px;
+}
+
+.end-of-feed {
+    text-align: center;
+    color: var(--color-text-light);
+    margin-top: 40px;
+    font-style: italic;
+}
+
+/* 4. Responsividade */
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    .navbar h1 {
+        margin-bottom: 10px;
+    }
+    .main-feed-container {
+        padding: 0 10px;
+    }
+    .discussion-card {
+        padding: 15px;
+    }
+    .card-header-feed {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .anon-tag, .user-tag {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}

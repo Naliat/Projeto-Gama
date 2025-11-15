@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnonVote - Feed de Discussões</title>
+    <link rel="stylesheet" href="../style/listaDiscussao.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="header-container">
+            <h1>AnonVote Feed</h1>
+            <nav>
+                <a href="./novaDiscussao.html" class="btn primary small-btn">➕ Nova Discussão</a>
+                <a href="../index.html" class="btn secondary small-btn">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-feed-container">
+        
+        <p class="feed-info">Veja as últimas brigas postadas e vote para decidir quem está babaca.</p>
+
+        <a href="./votacao.html?id=123" class="discussion-card">
+            <div class="card-header-feed">
+                <h2>O vizinho bateu a porta por causa do nosso gato!</h2>
+                <span class="anon-tag">ANÔNIMO</span>
+            </div>
+            <p class="card-summary">Ele chegou gritando que o nosso gato, o Fofura, estava arranhando o carro dele. Eu disse que Fofura é um gato de apartamento e nunca saiu de casa...</p>
+            <div class="card-footer-feed">
+                <span class="metadata">Postado há 5 minutos</span>
+                <span class="metadata votes">🗳️ 256 Votos</span>
+            </div>
+        </a>
+
+        <a href="./votacao.html?id=124" class="discussion-card">
+            <div class="card-header-feed">
+                <h2>Ela comeu minha comida fitness</h2>
+                <span class="user-tag">UsuárioX</span>
+            </div>
+            <p class="card-summary">Estou há 3 semanas na dieta e deixei minha marmita proteica separada. Voltei do trabalho e ela comeu metade e disse que 'não viu'...</p>
+            <div class="card-footer-feed">
+                <span class="metadata">Postado há 1 hora</span>
+                <span class="metadata comments">💬 12 Comentários</span>
+            </div>
+        </a>
+        
+        <a href="./votacao.html?id=125" class="discussion-card">
+            <div class="card-header-feed">
+                <h2>Quem é o babaca na escolha do filme?</h2>
+                <span class="anon-tag">ANÔNIMO</span>
+            </div>
+            <p class="card-summary">Queria ver o filme de terror que estava em alta, ele/ela insistiu no romance clichê. Tivemos uma discussão ridícula e agora ninguém vai ver nada...</p>
+            <div class="card-footer-feed">
+                <span class="metadata">Postado ontem</span>
+                <span class="metadata votes">🗳️ 50 Votos</span>
+            </div>
+        </a>
+
+        <p class="end-of-feed">Fim do feed. Poste uma briga você também!</p>
+    </div>
+</body>
+</html>

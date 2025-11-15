@@ -1,0 +1,192 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnonVote - Discussão e Votação</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <style>
+        .vote-card {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background: var(--color-card-background);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--color-primary); /* Destaque */
+        }
+        .vote-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed var(--color-border);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .vote-header h2 {
+            margin: 0;
+            padding: 0;
+            border-bottom: none;
+            font-size: 1.6em;
+            color: var(--color-primary);
+        }
+        .vote-details {
+            font-size: 0.9em;
+            color: var(--color-text-light);
+            text-align: right;
+        }
+        .vote-body p {
+            color: var(--color-secondary);
+            margin: 0;
+            margin-bottom: 20px;
+            text-align: left;
+            white-space: pre-wrap; /* Preserva quebras de linha no texto */
+        }
+        .vote-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .vote-buttons button {
+            padding: 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background: #F8F9FA;
+            color: var(--color-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .vote-buttons button:hover:not(.voted) {
+            background: #EAECEF;
+        }
+        .vote-buttons .btn-babaca {
+            background-color: #FF6B6B30; /* Fundo mais suave para as opções negativas */
+        }
+        .vote-buttons .btn-ninguem {
+            background-color: #6BFF6B30; /* Fundo verde para a opção positiva */
+        }
+        /* Comentários */
+        .comments-section h3 {
+            color: var(--color-secondary);
+            font-size: 1.2em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 5px;
+            font-weight: 700;
+        }
+        .comment-item {
+            padding: 15px;
+            border-radius: 8px;
+            background: #FAFAFA;
+            margin-bottom: 10px;
+            border: 1px solid var(--color-border);
+        }
+        .comment-item strong {
+            display: block;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+        .comment-item p {
+            color: var(--color-secondary);
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Área de Novo Comentário */
+        #new-comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            box-sizing: border-box;
+            resize: vertical;
+            min-height: 80px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade para Votação */
+        @media (max-width: 600px) {
+            .container {
+                max-width: 100%;
+                padding: 15px;
+            }
+            .vote-buttons {
+                grid-template-columns: 1fr; /* 1 coluna em celular */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="max-width: 700px;"> <div class="vote-card">
+            <div class="vote-header">
+                <h2>O vizinho bateu a porta por causa do nosso gato! (ID: 123)</h2>
+                <div class="vote-details">
+                    <p>
+                        Postado por: Usuário Anônimo<br>
+                        Criado em: 14/11/2025 21:30<br>
+                        Atualizado em: 14/11/2025 21:35
+                    </p>
+                </div>
+            </div>
+            
+            <div class="vote-body">
+                <p>
+                    "Ele chegou gritando que o nosso gato, o Fofura, estava arranhando o carro dele. Eu disse que Fofura é um gato de apartamento e nunca saiu de casa. Ele continuou gritando e eu gritei de volta. Meu marido disse que eu fui desnecessária. Quem está sendo o babaca?"
+                </p>
+            </div>
+            
+            <h3 style="text-align: left; margin-top: 25px; color: var(--color-secondary);">Quem está babaca?</h3>
+            <div class="vote-buttons">
+                <button class="btn-babaca" data-vote="homem_babaco">Homem Babaca (Marido)</button>
+                <button class="btn-babaca" data-vote="mulher_babaca">Mulher Babaca (Eu)</button>
+                <button class="btn-babaca" data-vote="todo_mundo_babaca">Todo Mundo Babaca</button>
+                <button class="btn-ninguem" data-vote="ninguem_babaca">Ninguém Babaca</button>
+            </div>
+            
+        </div>
+
+        <div class="vote-card">
+            <h3 style="text-align: center; color: var(--color-primary-dark);">Resultados Atuais da Votação</h3>
+            <div style="font-size: 1.2em; font-weight: bold; padding: 10px; border: 1px solid var(--color-border); border-radius: 8px; margin-top: 10px;">
+                Mulher Babaca (45%)
+            </div>
+            <p style="margin-top: 10px; margin-bottom: 0; font-size: 0.8em; text-align: center;">Total de Votos: 200</p>
+        </div>
+
+
+        <div class="comments-section">
+            <h3>Comentários (2)</h3>
+
+            <div class="vote-card" style="padding: 15px;">
+                <h4 style="color: var(--color-secondary); margin: 0 0 10px 0; font-size: 1em; text-align: left;">Deixe seu comentário</h4>
+                <form id="new-comment-form">
+                    <input type="text" placeholder="Título do Comentário" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 10px;" required>
+                    <textarea placeholder="Texto do Comentário..." required></textarea>
+                    <button type="submit" class="btn primary" style="width: 50%;">Comentar</button>
+                </form>
+            </div>
+
+
+            <div class="comment-item">
+                <strong>[Título: Calma lá]</strong>
+                <p>Eu acho que o vizinho foi o babaca por gritar. O marido foi babaca por não te defender. Você foi babaca por gritar de volta.</p>
+                <small style="display: block; margin-top: 5px; color: var(--color-text-light);">Por: UsuárioX</small>
+            </div>
+
+            <div class="comment-item">
+                <strong>[Título: Ponto de Vista]</strong>
+                <p>Fofura é inocente. Ponto final. E o marido deveria saber disso.</p>
+                <small style="display: block; margin-top: 5px; color: var(--color-text-light);">Por: UsuárioY</small>
+            </div>
+
+        </div>
+
+        <p class="switch-text" style="margin-top: 50px;">
+            <a href="../index.html">← Voltar para o Login (Simular Logout)</a>
+        </p>
+    </div>
+</body>
+</html>

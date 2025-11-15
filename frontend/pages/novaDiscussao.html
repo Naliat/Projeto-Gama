@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnonVote - Criar Nova Discussão</title>
+    <link rel="stylesheet" href="../style/novaDiscussao.css">
+</head>
+<body>
+
+    <div class="container" style="max-width: 600px;">
+        <h1>AnonVote 🗣️</h1>
+        <p>Compartilhe sua briga para que a comunidade possa votar.</p>
+
+        <div class="form-box active">
+            <h2>Postar Nova Discussão</h2>
+            <form>
+                <div class="input-group">
+                    <label for="discussion-title">Título da Discussão</label>
+                    <input type="text" id="discussion-title" placeholder="Ex: Quem bateu a porta por causa do gato?" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="discussion-text">Detalhes da Briga (Texto)</label>
+                    <textarea id="discussion-text" placeholder="Descreva a situação, o argumento e quem você acha que pode ser o babaca." required></textarea>
+                </div>
+                
+                <div class="input-group checkbox-group">
+                    <input type="checkbox" id="is-anonymous">
+                    <label for="is-anonymous" style="display: inline; font-weight: normal;">Postar anonimamente? (Recomendado)</label>
+                </div>
+
+                <button type="submit" class="btn primary">Enviar para Votação</button>
+            </form>
+            
+            <p class="switch-text" style="margin-top: 30px;">
+                <a href="./votacao.html">← Voltar para as Votações</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

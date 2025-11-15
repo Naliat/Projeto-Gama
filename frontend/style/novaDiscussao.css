@@ -1,0 +1,138 @@
+/* ======================================================= */
+/* --- Estilos da Página de Nova Discussão (novaDiscussao.css) --- */
+/* ======================================================= */
+
+/* Definições e Estilos Básicos (Global) */
+:root {
+    --color-primary: #FF6B6B; 
+    --color-primary-dark: #FF4757;
+    --color-secondary: #47535E;
+    --color-background: #F8F9FA;
+    --color-card-background: #FFFFFF;
+    --color-text-light: #A0AEC0;
+    --color-link: #3498db;
+    --color-border: #E2E8F0;
+}
+
+body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+.container {
+    background: var(--color-card-background);
+    padding: 30px; 
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 600px; /* Container mais largo para o formulário de texto */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h1 { color: var(--color-primary); margin-bottom: 5px; font-size: 2em; font-weight: 800; }
+p { color: var(--color-text-light); margin-bottom: 30px; font-size: 0.95em; }
+h2 { color: var(--color-secondary); margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px; font-size: 1.5em; font-weight: 600; }
+
+/* Formulário e Inputs */
+.form-box.active { display: block; }
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    font-size: 0.9em;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 150px; /* Mais altura para o texto da discussão */
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+/* Checkbox (Anônimo) */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    transform: scale(1.3);
+}
+
+/* Botões */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 15px;
+}
+
+.btn.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Links */
+.switch-text a {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 650px) {
+    .container {
+        max-width: 100%;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
